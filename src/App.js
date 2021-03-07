@@ -87,11 +87,9 @@ export default function App() {
   const [Score, setScore] = useState(0);
 
   const handleSubmit = (id, option) => {
-    console.log(option);
-    console.log('increase counter');
-    console.log(id);
-    setCounter(id + 1);
-    console.log(Counter);
+    if (id !== Questions.length - 1) {
+      setCounter(id + 1);
+    }
 
     if (option == Questions[id].correct) {
       setScore(Score + 1);
@@ -109,7 +107,6 @@ export default function App() {
         onSubmitForm={handleSubmit}
         initialScore={Score}
       />
-     
     </div>
   );
 }

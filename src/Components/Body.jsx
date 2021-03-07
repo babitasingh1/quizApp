@@ -11,15 +11,15 @@ export default function Body({ quizQuestions, Counter, onSubmitForm, score }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (quizQuestions.length - 1 == Counter) {
-      alert(`Your final score is ${score} out of ${Counter + 1}`);
-      return;
-    }
-
     if (selectedOption) {
       onSubmitForm(Counter, selectedOption);
     } else {
       alert('please select one option!');
+      return;
+    }
+
+    if (quizQuestions.length - 1 == Counter) {
+      alert(`Your final score is ${score} out of ${Counter + 1}`);
       return;
     }
 
